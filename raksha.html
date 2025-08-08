@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Raksha Bandhan 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+<style>
+  /* Reset & base */
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(110deg, #fef6e4 50%, #ffe5e9 100%);
+    color: #7a4747; display: flex; justify-content: center; align-items: flex-start;
+    padding: 20px 10px; transition: background-color 0.4s, color 0.4s;
+  }
+  body.dark {
+    background: linear-gradient(110deg, #2c2a38 50%, #453a5b 100%);
+    color: #e2d4f4;
+  }
+
+  /* Container */
+  .container {
+    max-width: 540px; width: 100%;
+    background: white; border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(123,42,80,0.12);
+    padding: 32px 24px 32px 24px; text-align: center;
+    position: relative; user-select: none;
+    transition: background-color 0.4s, color 0.4s;
+  }
+  body.dark .container {
+    background: #3f3b5a; color: #e2d4f4;
+    box-shadow: 0 8px 32px rgba(116,80,203,0.85);
+  }
+
+  /* Headers */
+  h1 {
+    margin: 0; font-size: 2.2rem; color: #cf2174; letter-spacing: 2px;
+  }
+  body.dark h1 { color: #f499b8; }
+  .year {
+    font-size: 2rem; color: #cf2174; margin: 4px 0 16px 0;
+  }
+  body.dark .year { color: #f499b8; }
+
+  /* Main Image */
+  .main-image {
+    width: 180px; height: 180px; margin: 0 auto 12px auto;
+    border-radius: 18px; background: #fffbe6; object-fit: cover;
+    border: 3px solid #ffc069; box-shadow: 0 3px 15px rgba(250,189,74,0.18);
+    cursor: default; opacity: 1; transition: all 0.5s ease;
+  }
+  body.dark .main-image {
+    background: #57486f; border-color: #b989c9;
+    box-shadow: 0 3px 15px rgba(183,167,219,0.5);
+  }
+
+  /* Fade animation classes */
+  .fade-out { opacity: 0; transition: opacity 0.4s ease; }
+  .fade-in { opacity: 1; transition: opacity 0.4s ease; }
+
+  /* Description and Panel */
+  .description {
+    font-weight: 500; font-size: 1.14rem; color: #ff8852; margin-bottom: 12px;
+    min-height: 1.5rem; transition: color 0.4s ease;
+  }
+  body.dark .description { color: #e7b7ae; }
+  .panel {
+    background: #fff9e6; margin: 8px 25px 18px 25px; padding: 12px;
+    border-radius: 12px; box-shadow: 0 2px 12px #faccb672;
+    font-size: 1.07rem; min-height: 3.5rem;
+    transition: background-color 0.4s, color 0.4s;
+  }
+  body.dark .panel {
+    background: #685d90; box-shadow: 0 2px 12px #9c92c9a3; color: #dcd4f9;
+  }
+
+  /* Buttons */
+  .button-row, #buttonBackRow {
+    margin: 0 0 20px 0; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+  }
+  button {
+    background: #cf2174; color: white; border: none; border-radius: 13px;
+    padding: 9px 28px; font-size: 1.05rem; cursor: pointer; font-weight: 600;
+    box-shadow: 0 3px 12px #cf2174cc;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  button:hover, button:focus {
+    background: #ac165a; transform: scale(1.05); box-shadow: 0 6px 18px #ac165acc;
+    outline: none;
+  }
+  button:focus-visible {
+    outline: 3px solid #ffaaee; outline-offset: 3px;
+  }
+  body.dark button {
+    background: #b281c9; box-shadow: 0 3px 12px #b281c9cc;
+  }
+  body.dark button:hover, body.dark button:focus {
+    background: #8e5aad; box-shadow: 0 6px 18px #8e5aadcc;
+  }
+
+  /* Footer */
+  .footer {
+    background: #f18f45; color: white; padding: 13px 0 8px 0;
+    border-bottom-left-radius: 22px; border-bottom-right-radius: 22px;
+    font-size: 1rem; letter-spacing: 1px; font-weight: 500; margin-top: 10px;
+    user-select: none; transition: background-color 0.4s;
+  }
+  body.dark .footer { background: #a45b1f; }
+
+  /* Confetti */
+  #confettiArea {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; z-index: 999;
+  }
+  .confetti {
+    position: absolute; width: 10px; height: 14px; border-radius: 2px; opacity: 0.2;
+    animation: confettiFall linear infinite; will-change: transform, opacity;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* Gallery */
+  #photoGrid {
+    display: none; margin: 24px 0 0 0; outline: none; width: 100%;
+  }
+  #photoGrid > div {
+    display: flex; justify-content: center; gap: 16px;
+  }
+  .gallery-item {
+    display: flex; flex-direction: column; align-items: center; margin-bottom: 12px;
+    width: 100%;
+  }
+  #photoGrid img {
+    width: 160px; height: 160px; border-radius: 16px;
+    border: 3px solid #fbbf54; object-fit: cover; background: #fffbe6;
+    cursor: pointer; box-shadow: 0 3px 12px rgba(250,189,74,0.3);
+    transition: transform 0.3s, box-shadow 0.3s; display: block; margin: 0 auto;
+  }
+  #photoGrid img:hover, #photoGrid img:focus {
+    transform: scale(1.08); box-shadow: 0 6px 20px rgba(250,189,74,0.55); outline: none;
+  }
+  .gallery-message {
+    margin-top: 8px; font-size: 0.98rem; color: #cf2174; background: #fffbe6;
+    border-radius: 8px; padding: 4px 10px; box-shadow: 0 2px 8px #fbbf5477;
+    text-align: center; min-width: 120px; user-select: none;
+  }
+  body.dark .gallery-message {
+    color: #f499b8; background: #57486f; box-shadow: 0 2px 8px #b989c977;
+  }
+  body.dark #photoGrid img {
+    background: #57486f; border-color: #b989c9; box-shadow: 0 3px 12px rgba(183,167,219,0.4);
+  }
+  body.dark #photoGrid img:hover, body.dark #photoGrid img:focus {
+    box-shadow: 0 6px 20px rgba(183,167,219,0.7);
+  }
+
+  /* Modal */
+  #modalOverlay {
+    display: none; position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.65);
+    justify-content:center; align-items:center; z-index:10000;
+  }
+  #modalOverlay.visible {
+    display: flex;
+  }
+  #modalImage {
+    max-width: 90vw; max-height: 90vh; border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(123, 42, 80, 0.25);
+    cursor: pointer; animation: scaleUp 0.3s ease forwards;
+  }
+  @keyframes scaleUp {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* Slide indicators */
+  #slideIndicators {
+    margin-top: -10px; margin-bottom: 12px; display: flex; justify-content: center; gap: 8px;
+  }
+  .indicator-dot {
+    width: 12px; height: 12px; background: #fbbf54; border-radius: 50%; box-shadow: 0 2px 6px #fbbf5477;
+    cursor: pointer; transition: background 0.3s;
+  }
+  body.dark .indicator-dot {
+    background: #b989c9; box-shadow: 0 2px 6px #b989c977;
+  }
+  .indicator-dot.active {
+    background: #cf2174; box-shadow: 0 4px 8px #cf217477;
+  }
+  body.dark .indicator-dot.active {
+    background: #f499b8; box-shadow: 0 4px 8px #f499b877;
+  }
+
+  /* Dark mode & confetti toggles */
+  #darkModeToggle, #confettiToggle {
+    position: absolute; right: 20px; border-radius: 20px; padding: 6px 14px;
+    font-weight: 600; font-size: 0.95rem; cursor: pointer; user-select: none; z-index: 101;
+  }
+  #darkModeToggle {
+    top: 16px; background: transparent; border: 2px solid #cf2174; color: #cf2174;
+  }
+  #confettiToggle {
+    top: 56px; background: transparent; border: 2px solid #f18f45; color: #f18f45;
+  }
+  #darkModeToggle:hover, #darkModeToggle:focus {
+    background-color: #cf2174; color: white; outline: none;
+  }
+  #confettiToggle:hover, #confettiToggle:focus {
+    background-color: #f18f45; color: white; outline: none;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 720px) {
+    .container {
+      max-width: 98vw; padding: 20px 6vw;
+    }
+    .main-image {
+      width: 140px; height: 140px;
+    }
+    #photoGrid > div {
+      flex-direction: column; align-items: center; gap: 0;
+      width: 100%;
+    }
+    .gallery-item {
+      width: 100%; margin-bottom: 22px;
+    }
+    #photoGrid img {
+      width: 96vw !important; height: 96vw !important; max-width: 350px; max-height: 350px;
+      margin: 0 auto; display: block;
+    }
+    .gallery-message {
+      min-width: unset; font-size: 1rem; width: 97vw; max-width: 350px; margin: 0 auto; margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px; font-size: 0.95rem;
+    }
+  }
+  @media (max-width: 400px) {
+    h1, .year {
+      font-size: 1rem;
+    }
+    .main-image {
+      width: 90px; height: 90px;
+    }
+    #photoGrid img, .gallery-message {
+      width: 98vw !important; max-width: 98vw;
+    }
+    .gallery-message, .panel, .description {
+      font-size: 0.9rem; padding: 2px 7px;
+    }
+    button {
+      font-size: 0.88rem;
+    }
+    .container {
+      padding: 6px 1vw;
+    }
+  }
+</style>
+</head>
+<body>
+  <button id="darkModeToggle" aria-pressed="false" aria-label="Toggle Dark Mode">Dark Mode</button>
+  <button id="confettiToggle" aria-pressed="true" aria-label="Toggle Confetti">Confetti: On</button>
+
+  <div id="confettiArea" aria-hidden="true"></div>
+
+  <main class="container" aria-live="polite" aria-atomic="true" aria-label="Raksha Bandhan Portfolio">
+    <h1>Happy Raksha Bandhan</h1>
+    <div class="year">2025</div>
+    <img
+      class="main-image fade-in"
+      id="mainImage"
+      src="https://static.thenounproject.com/png/140368-200.png"
+      alt="Rakhi"
+      tabindex="-1"
+    />
+    <div class="description" id="descText">A bond of love, a knot of protection!</div>
+    <div class="panel" id="panelText">
+      "May this Raksha Bandhan bring more joy and strength to our sibling bond!"
+    </div>
+
+    <div id="slideIndicators" role="tablist" aria-label="Slide indicators" tabindex="-1"></div>
+
+    <div class="button-row" id="buttonRow">
+      <button class="next-btn" id="btnNext" aria-label="Next Slide">Next</button>
+      <button class="gallery-btn" id="btnGallery" aria-label="Show Gallery">Show Gallery</button>
+      <button class="pause-btn" id="btnPause" aria-pressed="false" aria-label="Pause Slideshow">Pause</button>
+    </div>
+
+    <section id="photoGrid" aria-label="Photo Gallery" tabindex="0">
+      <div>
+        <div class="gallery-item">
+          <img src="/s1.jpeg" alt="Sibling moment 1" tabindex="0" class="gallery-img" />
+          <div class="gallery-message">Priya Dii (chotu) ! Ladaku 😂</div>
+        </div>
+        <div class="gallery-item">
+          <img src="/s2.jpeg" alt="Sibling moment 2" tabindex="0" class="gallery-img" />
+          <div class="gallery-message">Mona Dii ! Datne wali 😒</div>
+        </div>
+        <div class="gallery-item">
+          <img src="/s3.jpeg" alt="Sibling moment 3" tabindex="0" class="gallery-img" />
+          <div class="gallery-message">Sandhu (chotu) ! Bibad karne wali 😏</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="button-row" id="buttonBackRow" style="display:none;">
+      <button class="gallery-btn" id="btnBack" aria-label="Back to Slides">Back</button>
+    </div>
+
+    <div class="footer">&#10024; With Love on Raksha Bandhan &#10024; <br> @MOHIT </div>
+  </main>
+
+  <div id="modalOverlay" role="dialog" aria-modal="true" aria-label="Enlarged photo view" tabindex="-1">
+    <img id="modalImage" src="" alt="Enlarged view" />
+  </div>
+
+<script>
+  // Confetti logic
+  const confettiArea = document.getElementById('confettiArea');
+  const confettiCount = 40;
+  let confettiElements = [];
+  let confettiEnabled = true;
+  function createConfetti() {
+    for(let i=0; i < confettiCount; i++) {
+      let c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.top = '-' + (Math.random() * 100 + 20) + 'px';
+      c.style.backgroundColor = ['#cf2174','#f18f45','#fbbf54','#fabd4a','#fe98a2'][Math.floor(Math.random()*5)];
+      c.style.animationDuration = (1.5 + Math.random()*2) + 's';
+      c.style.animationDelay = (Math.random() * 5) + 's';
+      confettiArea.appendChild(c);
+      confettiElements.push(c);
+    }
+  }
+  function toggleConfetti(on) {
+    confettiEnabled = on;
+    confettiArea.style.display = on ? 'block' : 'none';
+  }
+  createConfetti();
+
+  // Elements & variables
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const confettiToggle = document.getElementById('confettiToggle');
+  const mainImage = document.getElementById("mainImage");
+  const descText = document.getElementById("descText");
+  const panelText = document.getElementById("panelText");
+  const photoGrid = document.getElementById("photoGrid");
+  const buttonRow = document.getElementById("buttonRow");
+  const buttonBackRow = document.getElementById("buttonBackRow");
+  const btnNext = document.getElementById("btnNext");
+  const btnGallery = document.getElementById("btnGallery");
+  const btnBack = document.getElementById("btnBack");
+  const btnPause = document.getElementById("btnPause");
+  const slideIndicators = document.getElementById("slideIndicators");
+  const modalOverlay = document.getElementById("modalOverlay");
+  const modalImage = document.getElementById("modalImage");
+  const galleryImages = document.querySelectorAll(".gallery-img");
+
+  const slides = [
+    { img: "/download.jpeg", desc: "A thread of love, a tie forever strong!", text: "Tying this sacred thread reminds me of the beautiful bond we share.<br>Happy Raksha Bandhan, dear sisters!" },
+    { img: "/g1.jpeg", desc: "A bond of love, a knot of protection!", text: "May this Raksha Bandhan bring more joy and strength to our sibling bond!" },
+    { img: "/g2.jpeg", desc: "Brother & Sister – Together Always", text: "Thank you for always being there for each other." },
+    { img: "/g3.jpeg", desc: "Special Raksha Bandhan Wishes!", text: "Promise to always protect and support each other." }
+  ];
+
+  let idx = 0, slideInterval, isPaused = false;
+
+  // Build slide indicators dots
+  function buildIndicators() {
+    slideIndicators.innerHTML = '';
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'indicator-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      dot.setAttribute('aria-label', `Slide ${i + 1} of ${slides.length}`);
+      dot.dataset.index = i;
+      dot.tabIndex = i === idx ? 0 : -1;
+      dot.onclick = () => {
+        if(photoGrid.style.display === 'flex') return;
+        idx = i;
+        updateSlide();
+        restartAutoSlide();
+      };
+      dot.onkeydown = e => {
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dot.click(); }
+      };
+      slideIndicators.appendChild(dot);
+    });
+  }
+
+  // Update slide indicators active state
+  function updateIndicators() {
+    [...slideIndicators.children].forEach((dot, i) => {
+      dot.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      dot.tabIndex = i === idx ? 0 : -1;
+    });
+  }
+
+  // Fade out and IN helper
+  function fadeOutIn(element, callback) {
+    element.classList.remove("fade-in");
+    element.classList.add("fade-out");
+    setTimeout(() => {
+      callback();
+      element.classList.remove("fade-out");
+      element.classList.add("fade-in");
+    }, 400);
+  }
+
+  // Update slideshow content
+  function updateSlide() {
+    fadeOutIn(mainImage, () => {
+      mainImage.src = slides[idx].img;
+      mainImage.alt = slides[idx].desc;
+    });
+    fadeOutIn(descText, () => descText.innerHTML = slides[idx].desc);
+    fadeOutIn(panelText, () => panelText.innerHTML = slides[idx].text.replace(/\n/g, '<br>'));
+    updateIndicators();
+  }
+
+  // Slides navigation
+  function nextSlide() {
+    if (photoGrid.style.display === "flex") return;
+    idx = (idx + 1) % slides.length;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    if (photoGrid.style.display === "flex") return;
+    idx = (idx - 1 + slides.length) % slides.length;
+    updateSlide();
+  }
+
+  // Autoplay slideshow
+  function startAutoSlide() {
+    if (slideInterval) clearInterval(slideInterval);
+    if (!isPaused) {
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+  }
+
+  function stopAutoSlide() {
+    clearInterval(slideInterval);
+  }
+
+  function restartAutoSlide() {
+    stopAutoSlide();
+    startAutoSlide();
+  }
+
+  // Pause toggle handler
+  btnPause.onclick = () => {
+    isPaused = !isPaused;
+    btnPause.setAttribute('aria-pressed', isPaused);
+    btnPause.textContent = isPaused ? 'Resume' : 'Pause';
+    isPaused ? stopAutoSlide() : startAutoSlide();
+  };
+  btnPause.onkeydown = e => {
+    if(e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      btnPause.click();
+    }
+  };
+
+  // Show gallery
+  function showGallery() {
+    fadeOutElements([mainImage, descText, panelText, buttonRow, slideIndicators], () => {
+      mainImage.style.display = 'none';
+      descText.style.display = 'none';
+      panelText.style.display = 'none';
+      buttonRow.style.display = 'none';
+      slideIndicators.style.display = 'none';
+
+      photoGrid.style.display = 'flex';
+      photoGrid.focus();
+      buttonBackRow.style.display = 'flex';
+
+      stopAutoSlide();
+    });
+  }
+
+  // Back to slides from gallery
+  function backToSlides() {
+    fadeOutElements([photoGrid, buttonBackRow], () => {
+      photoGrid.style.display = 'none';
+      buttonBackRow.style.display = 'none';
+
+      mainImage.style.display = 'block';
+      descText.style.display = 'block';
+      panelText.style.display = 'block';
+      buttonRow.style.display = 'flex';
+      slideIndicators.style.display = 'flex';
+
+      updateSlide();
+      startAutoSlide();
+      btnNext.focus();
+    });
+  }
+
+  // Fade helpers for multiple elements
+  function fadeOutElements(elements, callback) {
+    elements.forEach(el => {
+      el.classList.remove('fade-in');
+      el.classList.add('fade-out');
+    });
+    setTimeout(() => {
+      callback();
+      elements.forEach(el => {
+        el.classList.remove('fade-out');
+        el.classList.add('fade-in');
+      });
+    }, 400);
+  }
+
+  // Modal open
+  function openModal(src, alt) {
+    modalImage.src = src;
+    modalImage.alt = alt;
+    modalOverlay.classList.add('visible');
+    modalOverlay.focus();
+  }
+
+  // Modal close
+  function closeModal() {
+    modalOverlay.classList.remove('visible');
+    modalImage.src = '';
+    modalImage.alt = '';
+    if(photoGrid.style.display === 'flex') photoGrid.focus();
+  }
+
+  // Event bindings
+  btnNext.onclick = () => { nextSlide(); restartAutoSlide(); };
+  btnNext.onkeydown = e => {
+    if (e.key === 'ArrowRight') nextSlide();
+    else if (e.key === 'ArrowLeft') prevSlide();
+  };
+
+  btnGallery.onclick = showGallery;
+
+  btnBack.onclick = backToSlides;
+  btnBack.onkeydown = e => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      backToSlides();
+    }
+  };
+
+  modalOverlay.onclick = closeModal;
+  modalOverlay.onkeydown = e => {
+    if (e.key === 'Escape') closeModal();
+  };
+  modalImage.onclick = closeModal;
+
+  // Gallery images click keyboard support
+  galleryImages.forEach(img => {
+    img.onclick = () => openModal(img.src, img.alt);
+    img.onkeydown = e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(img.src, img.alt);
+      }
+    };
+  });
+
+  // Keyboard navigation globally
+  document.addEventListener('keydown', e => {
+    if(modalOverlay.classList.contains('visible')) {
+      if(e.key === 'Escape') closeModal();
+    } else if(photoGrid.style.display === 'flex') {
+      if(e.key === 'Escape') backToSlides();
+    } else {
+      if(e.key === 'ArrowRight') nextSlide();
+      else if(e.key === 'ArrowLeft') prevSlide();
+    }
+  });
+
+  // Swipe support for mobile
+  let touchStartX = 0, touchEndX = 0;
+  const threshold = 50;
+  function handleGesture() {
+    if ((touchEndX - touchStartX) > threshold) prevSlide();
+    else if ((touchStartX - touchEndX) > threshold) nextSlide();
+  }
+  document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+  document.addEventListener('touchend', e => { touchEndX = e.changedTouches[0].screenX; handleGesture(); }, {passive:true});
+
+  // Dark mode toggle
+  darkModeToggle.onclick = () => {
+    const dark = document.body.classList.toggle('dark');
+    darkModeToggle.setAttribute('aria-pressed', dark);
+    darkModeToggle.textContent = dark ? 'Light Mode' : 'Dark Mode';
+  };
+  darkModeToggle.onkeydown = e => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); darkModeToggle.click(); } };
+
+  // Confetti toggle
+  confettiToggle.onclick = () => {
+    toggleConfetti(!confettiEnabled);
+    confettiToggle.setAttribute('aria-pressed', confettiEnabled);
+    confettiToggle.textContent = confettiEnabled ? 'Confetti: On' : 'Confetti: Off';
+  };
+  confettiToggle.onkeydown = e => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); confettiToggle.click(); } };
+
+  // Initialize
+  buildIndicators();
+  updateSlide();
+  toggleConfetti(true);
+  startAutoSlide();
+</script>
+</body>
+</html>
